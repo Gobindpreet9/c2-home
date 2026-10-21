@@ -20,7 +20,8 @@ class BuildPrivacyTests(unittest.TestCase):
             client.parent.mkdir(parents=True)
             client.write_text(json.dumps({'urls':['http://192.0.2.10:8790'], 'token':'private-build-test-sentinel'}))
             out = home / 'out'
-            with patch.object(builder, 'OUT', out), patch.object(Path, 'home', return_value=home), patch.dict(os.environ, {}, clear=True):
+            # Isolate private build configuration without erasing setup-node's PATH.
+            with patch.object(builder, 'OUT', out), patch.object(Path, 'home', return_value=home), patch.dict(os.environ, {'C2_THEME_CONFIG': ''}):
                 builder.build()
             config = (out / 'theme-config.js').read_text()
             self.assertEqual(config, 'window.C2_THEME_CONFIG={"urls":[],"token":""};\n')
