@@ -1,0 +1,14 @@
+{
+  "name": "c2-home",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Personal LG C2 artwork-first launcher",
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "build": "python3 build_app.py",
+    "package": "ares-package --no-minify dist --outdir releases"
+  },
+  "devDependencies": {
+    "@webos-tools/cli": "3.2.6"
+  }
+}

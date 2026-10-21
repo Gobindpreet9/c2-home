@@ -1,0 +1,19 @@
+<div class="scrim" id="scrim" role="dialog" aria-modal="true" aria-label="Settings" aria-hidden="true"><aside class="drawer">
+<div class="drawer-header"><h2>Settings</h2><button class="close" id="close" aria-label="Close settings">×</button></div>
+<div class="settings-tabs" role="tablist" aria-label="Settings sections"><button class="settings-tab" id="appearanceTab" role="tab" data-settings-tab="appearance" aria-controls="appearancePage" aria-selected="true" tabindex="0">Appearance</button><button class="settings-tab" id="connectionsTab" role="tab" data-settings-tab="connections" aria-controls="connectionsPage" aria-selected="false" tabindex="-1">Connections</button></div>
+<div class="drawer-pages">
+<section class="drawer-page" id="appearancePage" role="tabpanel" aria-labelledby="appearanceTab">
+<section class="setting-group appearance-controls">
+<div class="setting-row"><label for="shade">Wallpaper shade</label><span class="shade-control"><input type="range" id="shade" min="0" max="55" value="3" aria-label="Wallpaper shade"><output id="shadeValue" for="shade">3%</output></span></div>
+<div class="action-grid"><button class="drawer-action" id="drawerNight" aria-pressed="false">Night mode</button><button class="drawer-action" id="drawerArt">Art view</button></div>
+<div class="action-grid material-actions"><button class="drawer-action" id="drawerGlass" aria-pressed="true">Frosted glass</button><button class="drawer-action" id="drawerDetails" aria-pressed="true">Card details</button></div>
+</section>
+</section>
+<section class="drawer-page" id="connectionsPage" role="tabpanel" aria-labelledby="connectionsTab" hidden inert>
+<div class="connection-card"><div class="connection-top"><h3>Moonfin</h3><span class="connection-state">Not connected</span></div><button class="drawer-action" id="connectPreview">Connect server</button></div>
+<div class="connection-card"><div class="connection-top"><h3>Weather</h3><span class="connection-state">Not set</span></div><button class="drawer-action" id="weatherPreview">Location</button></div>
+<div class="connection-card"><div class="connection-top"><h3>PC theme</h3><span class="connection-state" id="themeState" aria-live="polite">Not configured</span></div><button class="drawer-action" id="themeRefresh">Sync now</button></div>
+{{CONNECTION_FORMS}}
+</section>
+</div>
+</aside></div>

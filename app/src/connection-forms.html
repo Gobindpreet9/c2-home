@@ -1,0 +1,26 @@
+<div class="action-grid connection-tools"><button class="drawer-action" id="editAppIds">Advanced</button><button class="drawer-action" id="refreshLibrary" hidden>Refresh library</button></div>
+<form id="weatherForm" class="connection-form" hidden>
+<h3>Choose weather location</h3>
+<label class="field" for="cityQuery">City or town</label><input id="cityQuery" type="text" maxlength="100" autocomplete="off" placeholder="Search a city" required>
+<label class="field" for="weatherUnits">Temperature units</label><select id="weatherUnits"><option value="celsius">Celsius</option><option value="fahrenheit">Fahrenheit</option></select>
+<button class="drawer-action" type="submit">Find city</button><div id="weatherStatus" class="form-status" role="status"></div><div class="city-results" id="cityResults"></div>
+</form>
+<form id="jellyfinForm" class="connection-form" hidden>
+<h3>Moonfin library</h3>
+<p class="setting-note">Connect the same Jellyfin server and account you use in Moonfin. Playback stays in Moonfin.</p>
+<p class="setting-note">Use a non-admin account. Sign-in is saved on this TV until you disconnect; your password is not saved. Use HTTPS when available; HTTP sends credentials unencrypted.</p>
+<label class="field" for="serverUrl">Server address</label><input id="serverUrl" type="url" maxlength="512" autocomplete="url" placeholder="http://server:8096" required>
+<label class="field" for="jellyfinUser">Username</label><input id="jellyfinUser" type="text" maxlength="120" autocomplete="username" required>
+<label class="field" for="jellyfinPassword">Password</label><input id="jellyfinPassword" type="password" maxlength="1024" autocomplete="off">
+<button class="drawer-action" type="submit">Sign in</button><button class="drawer-action" type="button" id="signOutJellyfin">Disconnect</button><div id="jellyfinStatus" class="form-status" role="status"></div>
+</form>
+<form id="appIdsForm" class="connection-form" hidden>
+<h3>App & input IDs</h3><p class="setting-note">Only change these if app launching stops working.</p>
+<label class="field" for="appId-moonfin">Moonfin</label><input id="appId-moonfin" type="text" maxlength="128" spellcheck="false">
+<label class="field" for="appId-moonlight">Moonlight</label><input id="appId-moonlight" type="text" maxlength="128" spellcheck="false">
+<label class="field" for="appId-youtube">Official YouTube</label><input id="appId-youtube" type="text" maxlength="128" spellcheck="false">
+<label class="field" for="appId-pc">PC · HDMI 1</label><input id="appId-pc" type="text" maxlength="128" spellcheck="false">
+<label class="field" for="appId-ps5">PS5 · HDMI 2</label><input id="appId-ps5" type="text" maxlength="128" spellcheck="false">
+<label class="field" for="appId-lgHome">Home app</label><input id="appId-lgHome" type="text" maxlength="128" spellcheck="false">
+<button class="drawer-action" type="submit">Save IDs</button><div id="appIdStatus" class="form-status" role="status"></div>
+</form>

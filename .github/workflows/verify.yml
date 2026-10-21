@@ -1,0 +1,41 @@
+name: verify
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  source-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install test prerequisites
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y inotify-tools
+          python -m pip install -r requirements.txt
+      - name: Publication guard
+        run: |
+          python tools/check_public_tree.py
+          python -m unittest discover -s tools -p 'test_*.py'
+      - name: Build default source and verify no private configuration is bundled
+        run: |
+          python app/build_app.py
+          python -m unittest discover -s app/tests -p 'test_*.py'
+          node --test app/tests/*.test.cjs
+          python app/build_home_variant.py
+      - name: Package the unconfigured TV app (no upload or deployment)
+        working-directory: app
+        run: |
+          npm ci --no-audit --no-fund
+          npm run package
+      - name: Bridge tests and shell syntax
+        run: |
+          python -m unittest discover -s theme-bridge -p 'test_*.py' -v
+          bash -n theme-bridge/install.sh moonfin-patch/update.sh
