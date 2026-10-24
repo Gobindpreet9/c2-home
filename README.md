@@ -1,6 +1,8 @@
-# C2 Home
+# LG Home + Omarchy Sync
 
-An artwork-led Home launcher for a rooted LG webOS TV, built around Moonfin, Moonlight, YouTube, and two HDMI inputs. Includes an event-driven Omarchy theme bridge and a small Moonfin item-deep-link patch.
+An artwork-led Home launcher for a rooted LG webOS TV, built around Moonfin, Moonlight, YouTube, and two HDMI inputs. Includes an event-driven Omarchy theme and wallpaper bridge and a small Moonfin item-deep-link patch.
+
+Formerly published as `c2-home`. The repository name is hardware-generic; the tested device remains an LG C2. Internal `C2_THEME_CONFIG` and bridge identifiers are retained for compatibility.
 
 ## Features
 
